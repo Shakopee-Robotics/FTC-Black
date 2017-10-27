@@ -34,14 +34,6 @@ public class FTCBlackHardware {
     public DcMotor rearLeftMotor   = null;
     public DcMotor rearRightMotor  = null;
     public DcMotor winch  = null;
-    public Servo leftGlyph  = null;
-    public Servo rightGlyph = null;
-
-    public static final double CLOSE_SERVO       =  0.6 ;
-    public static final double MID_SERVO       =  0.0 ;
-    public static final double OPEN_SERVO       =  1 ;
-
-
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -91,10 +83,8 @@ public class FTCBlackHardware {
         winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
-        leftGlyph.setPosition(0);
-        rightGlyph.setPosition(1);
-        leftGlyph  = hwMap.servo.get("gleft");
-        rightGlyph = hwMap.servo.get("gright");
+
+
     }
 
     /***

@@ -37,12 +37,6 @@ public class FTCBlackHardware1 {
     public Servo leftGlyph  = null;
     public Servo rightGlyph = null;
 
-    public static final double CLOSE_SERVO       =  0.6 ;
-    public static final double MID_SERVO       =  0.0 ;
-    public static final double OPEN_SERVO       =  1 ;
-
-
-
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();

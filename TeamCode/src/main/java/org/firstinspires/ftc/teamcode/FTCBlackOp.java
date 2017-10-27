@@ -21,11 +21,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="FTC Black OMNI", group="FTCBlack")
-public class FTCBlackOMNI extends OpMode {
+@TeleOp(name="FTC Black Final", group="FTCBlack")
+public class FTCBlackOp extends OpMode {
 
     /* Declare OpMode members. */
-    FTCBlackHardware robot = new FTCBlackHardware(); // use the class created to define a Pushbot's hardware
+    FTCBlackHardware1 robot = new FTCBlackHardware1(); // use the class created to define a Pushbot's hardware
     // could also use HardwareFTCWhiteMatrix class.
     // sets rate to move servo
 
@@ -67,27 +67,34 @@ public class FTCBlackOMNI extends OpMode {
         double ch2;
         double ch3;
         double ch4;
-        double encoderLim;
-        double encoderVal;
-        /*
-        <<<<MOTORS>>>>
-        */
         //Ch1 = Right joystick X-axis
         //Ch2 = Right joystick y- axis(unused)
         //Ch3 = Left joystick Y-axis
         //Ch4 = Left joystick X-axis
+        /*
+        <<<<MOTORS>>>>
+        */
         ch1 = gamepad1.right_stick_x;
         ch2 = -gamepad1.right_stick_y;
         ch3 = -gamepad1.left_stick_y;
         ch4 = -gamepad1.left_stick_x;
-        
+
         robot.frontLeftMotor.setPower(ch3 - ch4 + ch1);
         robot.rearLeftMotor.setPower(ch3 + ch4 + ch1);
         robot.rearRightMotor.setPower(ch3 - ch4 - ch1);
         robot.frontRightMotor.setPower(ch3 + ch4 - ch1);
         robot.winch.setPower(gamepad1.left_trigger - gamepad1.right_trigger);
-        /*
-        <<<SERVOS>>>
-        */
+
+         /*
+         <<<SERVOS>>>
+         */
+        if (gamepad2.right_bumper) {
+            robot.rightGlyph.setPosition(.6);
+            robot.leftGlyph.setPosition(0);
+        } else if (gamepad2.left_bumper) {
+            robot.rightGlyph.setPosition(.6);
+            robot.leftGlyph.setPosition(.6);
+        }
+
     }
 }
