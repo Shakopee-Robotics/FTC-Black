@@ -67,8 +67,6 @@ public class FTCBlackOMNI extends OpMode {
         double ch2;
         double ch3;
         double ch4;
-        double encoderLim;
-        double encoderVal;
         /*
         <<<<MOTORS>>>>
         */
@@ -80,7 +78,7 @@ public class FTCBlackOMNI extends OpMode {
         ch2 = -gamepad1.right_stick_y;
         ch3 = -gamepad1.left_stick_y;
         ch4 = -gamepad1.left_stick_x;
-        
+
         robot.frontLeftMotor.setPower(ch3 - ch4 + ch1);
         robot.rearLeftMotor.setPower(ch3 + ch4 + ch1);
         robot.rearRightMotor.setPower(ch3 - ch4 - ch1);
