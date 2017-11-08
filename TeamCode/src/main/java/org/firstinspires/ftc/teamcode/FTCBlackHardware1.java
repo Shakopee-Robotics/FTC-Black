@@ -34,6 +34,8 @@ public class FTCBlackHardware1 {
     public Servo leftGlyph = null;
     public Servo rightGlyph = null;
 
+    public static final double MID_SERVO       =  0.0 ;
+
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
@@ -49,8 +51,8 @@ public class FTCBlackHardware1 {
         hwMap = bhwMap;
 
         // Define and Initialize Motors
-        leftGlyph.setPosition(0);
-        rightGlyph.setPosition(.6);
+        leftGlyph.setPosition(MID_SERVO);
+        rightGlyph.setPosition(MID_SERVO);
         leftGlyph  = hwMap.get(Servo.class,"gleft");
         rightGlyph = hwMap.get(Servo.class,"gright");
 
@@ -58,7 +60,7 @@ public class FTCBlackHardware1 {
         frontRightMotor  = hwMap.get(DcMotor.class,"fright");
         rearLeftMotor   = hwMap.get(DcMotor.class,"rleft");
         rearRightMotor  = hwMap.get(DcMotor.class,"rright");
-         winch    = hwMap.get(DcMotor.class,"win");
+        winch    = hwMap.get(DcMotor.class,"win");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -97,22 +99,7 @@ public class FTCBlackHardware1 {
      *
      * @param periodMs  Length of wait cycle in mSec.
      */
-    public void waitForTick(long periodMs) {
 
-        long  remaining = periodMs - (long)period.milliseconds();
-
-        // sleep for the remaining portion of the regular cycle period.
-        if (remaining > 0) {
-            try {
-                Thread.sleep(remaining);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-
-        // Reset the cycle clock for the next pass.
-        period.reset();
-    }
 }
   /*
 

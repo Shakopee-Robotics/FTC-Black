@@ -25,7 +25,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class FTCBlackOp extends OpMode {
 
     /* Declare OpMode members. */
-    FTCBlackHardware1 robot = new FTCBlackHardware1(); // use the class created to define a Pushbot's hardware
+    FTCBlackHardwareTwo robot = new FTCBlackHardwareTwo(); // use the class created to define a Pushbot's hardware
+    double ZERO = 0.0;
+    double SIX = 0.6;
+
     // could also use HardwareFTCWhiteMatrix class.
     // sets rate to move servo
 
@@ -89,13 +92,16 @@ public class FTCBlackOp extends OpMode {
          /*
          <<<SERVOS>>>
         */
-        if (gamepad1.right_bumper) {
-            robot.rightGlyph.setPosition(.6);
-            robot.leftGlyph.setPosition(0);
-        } else if (gamepad1.left_bumper) {
-            robot.rightGlyph.setPosition(0);
-            robot.leftGlyph.setPosition(.6);
-        }
+        if (gamepad2.right_bumper) {
+            robot.rightClaw.setPosition(.6);
+            robot.leftClaw.setPosition(0);
 
+        } else if (gamepad2.left_bumper) {
+            robot.rightClaw.setPosition(0);
+            robot.leftClaw.setPosition(.6);
+        }
     }
+
+
+
 }
