@@ -5,9 +5,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-/**
- * Created by nmckelvey on 10/11/17.
- */
 
 public class FTCBlackHardware1 {
 
@@ -34,7 +31,7 @@ public class FTCBlackHardware1 {
     public DcMotor rearLeftMotor   = null;
     public DcMotor rearRightMotor  = null;
     public DcMotor winch  = null;
-    public Servo leftGlyph  = null;
+    public Servo leftGlyph = null;
     public Servo rightGlyph = null;
 
     /* local OpMode members. */
@@ -47,16 +44,21 @@ public class FTCBlackHardware1 {
     }
 
     /* Initialize standard Hardware interfaces */
-    public void init(HardwareMap ahwMap) {
+    public void init(HardwareMap bhwMap) {
         // Save reference to Hardware map
-        hwMap = ahwMap;
+        hwMap = bhwMap;
 
         // Define and Initialize Motors
-        frontLeftMotor   = hwMap.dcMotor.get("fleft");
-        frontRightMotor  = hwMap.dcMotor.get("fright");
-        rearLeftMotor   = hwMap.dcMotor.get("rleft");
-        rearRightMotor  = hwMap.dcMotor.get("rright");
-        winch    = hwMap.dcMotor.get("win");
+        leftGlyph.setPosition(0);
+        rightGlyph.setPosition(.6);
+        leftGlyph  = hwMap.get(Servo.class,"gleft");
+        rightGlyph = hwMap.get(Servo.class,"gright");
+
+        frontLeftMotor   = hwMap.get(DcMotor.class,"fleft");
+        frontRightMotor  = hwMap.get(DcMotor.class,"fright");
+        rearLeftMotor   = hwMap.get(DcMotor.class,"rleft");
+        rearRightMotor  = hwMap.get(DcMotor.class,"rright");
+         winch    = hwMap.get(DcMotor.class,"win");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -85,10 +87,6 @@ public class FTCBlackHardware1 {
         winch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
-        leftGlyph.setPosition(0);
-        rightGlyph.setPosition(1);
-        leftGlyph  = hwMap.servo.get("gleft");
-        rightGlyph = hwMap.servo.get("gright");
     }
 
     /***

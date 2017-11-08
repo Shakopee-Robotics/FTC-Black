@@ -79,6 +79,7 @@ public class FTCBlackOp extends OpMode {
         ch3 = -gamepad1.left_stick_y;
         ch4 = -gamepad1.left_stick_x;
 
+
         robot.frontLeftMotor.setPower(ch3 - ch4 + ch1);
         robot.rearLeftMotor.setPower(ch3 + ch4 + ch1);
         robot.rearRightMotor.setPower(ch3 - ch4 - ch1);
@@ -87,12 +88,12 @@ public class FTCBlackOp extends OpMode {
 
          /*
          <<<SERVOS>>>
-         */
-        if (gamepad2.right_bumper) {
+        */
+        if (gamepad1.right_bumper) {
             robot.rightGlyph.setPosition(.6);
             robot.leftGlyph.setPosition(0);
-        } else if (gamepad2.left_bumper) {
-            robot.rightGlyph.setPosition(.6);
+        } else if (gamepad1.left_bumper) {
+            robot.rightGlyph.setPosition(0);
             robot.leftGlyph.setPosition(.6);
         }
 

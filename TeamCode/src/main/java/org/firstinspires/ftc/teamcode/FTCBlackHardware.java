@@ -50,11 +50,11 @@ public class FTCBlackHardware {
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        frontLeftMotor   = hwMap.dcMotor.get("fleft");
-        frontRightMotor  = hwMap.dcMotor.get("fright");
-        rearLeftMotor   = hwMap.dcMotor.get("rleft");
-        rearRightMotor  = hwMap.dcMotor.get("rright");
-        winch    = hwMap.dcMotor.get("win");
+        frontLeftMotor   = hwMap.get(DcMotor.class,"fleft");
+        frontRightMotor  = hwMap.get(DcMotor.class,"fright");
+        rearLeftMotor   = hwMap.get(DcMotor.class,"rleft");
+        rearRightMotor  = hwMap.get(DcMotor.class,"rright");
+        winch    = hwMap.get(DcMotor.class,"win");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
